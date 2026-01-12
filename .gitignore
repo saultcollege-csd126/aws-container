@@ -1,0 +1,15 @@
+.pytest_cache
+__pycache__
+
+.aws
+.terraform
+*.tfvars
+*.tfvars.json
+*.pem
+terraform.tfstate
+terraform.tfstate.backup
+.venv
+
+lambda_package
+lambda_function.zip
+lambda-out.txt
