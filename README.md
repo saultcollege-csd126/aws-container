@@ -8,7 +8,9 @@ detail : aws iam list-users help
         aws iam create-user help
         aws iam add-user-to-group help
 aws iam list-users --query 'Users[].UserName' --output table
-                                                       text (blank version) 
+                                                       text (blank version)
+                                                       aws iam list-users
+ 
 aws iam add-user-to-group \
   --user-name user-1 \
   --group-name S3-Support
@@ -20,7 +22,12 @@ aws iam list-groups-for-user \
   --query 'Groups[].GroupName' \
   --output table
 
-List incline policy for the group : aws iam list-group-policies --group-name EC2-Admin
+List incline policy for the group : 
+aws iam get-group-policy \
+  --group-name EC2-Admin \
+  --policy-name EC2-Admin-Policy       
+
+
 aws iam list-attached-group-policies --group-name S3-Support
 
 
