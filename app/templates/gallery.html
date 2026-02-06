@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}My Gallery - Image Gallery{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">My Images</h2>
+
+{% if images %}
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for image in images %}
+    <div class="col">
+        <div class="card h-100">
+            <img src="{{ image.url }}" class="card-img-top" alt="{{ image.filename }}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <h6 class="card-title">{{ image.filename }}</h6>
+                <p class="card-text">
+                    <small class="text-muted">{{ image.created_at[:10] }}</small>
+                </p>
+                <form method="POST" action="{{ url_for('delete_image', image_id=image.id) }}" onsubmit="return confirm('Are you sure you want to delete this image?');">
+                    <button type="submit" class="btn btn-danger btn-sm w-100">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">
+    <p>You haven't uploaded any images yet. <a href="{{ url_for('upload') }}">Upload your first image</a></p>
+</div>
+{% endif %}
+{% endblock %}

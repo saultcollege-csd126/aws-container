@@ -1,6 +1,6 @@
 # AWS Container
 
-This repository provides a Docker container pre-configured with the AWS CLI and other useful tools for managing AWS services.
+This repository provides a Docker container pre-configured with the AWS CLI and other useful tools for managing AWS services. It also includes a Flask-based Image Gallery application that demonstrates integration with AWS Cognito, S3, and DynamoDB.
 
 ## Setup
 
@@ -65,3 +65,52 @@ aws_session_token = YOUR_SESSION_TOKEN # (if applicable)
 3. Once the Sandbox environment is running, click on the "Details" button, then click the "Show" button.
 4. Click the AWS CLI "Show" button.
 5. Copy the ENTIRE contents of the displayed credentials and paste them into your `.aws/credentials` file in the container.
+
+## Flask Image Gallery Application
+
+This repository includes a Flask-based image gallery application that demonstrates integration with AWS services.
+
+### Features
+
+1. **User Authentication**: Login and registration via AWS Cognito user pool
+2. **Image Upload**: Authenticated users can upload images (stored in S3)
+3. **Metadata Storage**: Image metadata (owner, created_at, status) stored in DynamoDB
+4. **Image Management**: Users can view and delete their uploaded images
+5. **Public Gallery**: Home page displays recently uploaded images from all users
+
+### Quick Start
+
+1. **Set up AWS resources** (Cognito, S3, DynamoDB):
+   ```bash
+   ./setup_aws.sh
+   ```
+   This script will create the necessary AWS resources and output configuration values.
+
+2. **Create a `.env` file** with the configuration values from the setup script, or copy from the example:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your AWS resource details
+   ```
+
+3. **Run the application**:
+   ```bash
+   ./run_app.sh
+   ```
+   Or manually:
+   ```bash
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   python -m app.app
+   ```
+
+4. **Access the application**: Open your browser to `http://localhost:5000`
+
+### Documentation
+
+For detailed information about the Flask application, including:
+- Application architecture
+- AWS setup instructions
+- Required IAM permissions
+- Troubleshooting
+
+See the [Flask App README](app/README.md).
