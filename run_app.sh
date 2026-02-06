@@ -38,8 +38,10 @@ if ! python -c "import flask" 2>/dev/null; then
     echo "✓ Dependencies installed"
 fi
 
-# Load environment variables
-export $(grep -v '^#' .env | xargs)
+# Load environment variables safely
+set -a
+source .env
+set +a
 
 echo "✓ Environment configured"
 echo ""

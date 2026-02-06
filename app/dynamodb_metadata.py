@@ -41,7 +41,12 @@ class DynamoDBMetadata:
             return {'success': False, 'error': str(e)}
     
     def get_user_images(self, owner):
-        """Get all images for a specific user"""
+        """Get all images for a specific user
+        
+        Note: This uses Scan which is inefficient for large datasets.
+        For production, consider adding a Global Secondary Index (GSI) on 'owner'
+        to use Query instead of Scan for better performance and cost efficiency.
+        """
         try:
             response = self.table.scan(
                 FilterExpression='#owner = :owner AND #status = :status',
@@ -62,7 +67,13 @@ class DynamoDBMetadata:
             return {'success': False, 'error': str(e)}
     
     def get_recent_images(self, limit=10):
-        """Get most recently uploaded images from all users"""
+        """Get most recently uploaded images from all users
+        
+        Note: This uses Scan which is inefficient for large datasets.
+        For production, consider using DynamoDB Streams with a separate index table,
+        or a GSI with a static partition key and 'created_at' as the sort key
+        for better performance and cost efficiency.
+        """
         try:
             response = self.table.scan(
                 FilterExpression='#status = :status',
