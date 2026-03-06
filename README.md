@@ -2,12 +2,13 @@
 
 This repository provides a Docker container pre-configured with the AWS CLI and other useful tools for managing AWS services.
 AWS HELP COMMAND 
+aws sts get-caller-identity
 aws iam help
 aws iam help | grep user ( user related command)
 detail : aws iam list-users help
         aws iam create-user help
         aws iam add-user-to-group help
-aws iam list-users --query 'Users[].UserName' --output table
+aws iam list-users --query 'Users[].UserName' --output table (add query)
                                                        text (blank version)
                                                        aws iam list-users
  
@@ -16,6 +17,8 @@ aws iam add-user-to-group \
   --group-name S3-Support
 
 verify group : aws iam list-groups-for-user --user-name user-1
+aws iam list-group-policies --group-name EC2-Admin
+
 if only want group name : 
 aws iam list-groups-for-user \
   --user-name user-3 \
@@ -28,7 +31,9 @@ aws iam get-group-policy \
   --policy-name EC2-Admin-Policy       
 
 
-aws iam list-attached-group-policies --group-name S3-Support
+aws iam list-attached-group-policies --group-name S3-Support (Determine privilage )
+aws iam get-policy --policy-arn POLICY_ARN (get policy metadata)
+
 
 
   
