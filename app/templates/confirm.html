@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Confirm Email - Image Gallery{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Confirm Email</h2>
+                <p class="text-center">Please enter the confirmation code sent to your email.</p>
+                <form method="POST" action="{{ url_for('confirm') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ username }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmation_code" class="form-label">Confirmation Code</label>
+                        <input type="text" class="form-control" id="confirmation_code" name="confirmation_code" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
