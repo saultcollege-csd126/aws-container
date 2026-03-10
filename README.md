@@ -11,6 +11,8 @@ detail : aws iam list-users help
 aws iam list-users --query 'Users[].UserName' --output table (add query)
                                                        text (blank version)
                                                        aws iam list-users
+chmod 400 ../../KIET.pem
+ssh -i ../../KIET.pem ec2-user@3.84.101.146
  
 aws iam add-user-to-group \
   --user-name user-1 \
