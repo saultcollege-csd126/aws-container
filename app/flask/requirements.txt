@@ -1,0 +1,5 @@
+authlib
+boto3
+Flask
+requests
+werkzeug
