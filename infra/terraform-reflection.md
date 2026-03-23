@@ -1,0 +1,2 @@
+39.1, Import blocks were important in this lab because they connected the container to the amazon servers/cognito.The import blocks work by synchronizing the the infastructre that already exist, state files to an existing resource. if you were starting from scratch you would have to make the resource block first then the import block
+38.2, Terraform is for managing infastructure design not managing secrets, if terraform needed the secrets readily avalible then they could be stored.
