@@ -10,3 +10,11 @@ variable "ami_id" {
 variable "instance_profile_name" {
   default = "LabInstanceProfile"
 }
+
+variable "user_pool_name" {
+  default = "us-east-1_afks661PG"
+}
+
+variable "client_name" {
+  default = "5pj95crr3bdbb1nfs82587idf6"
+}
