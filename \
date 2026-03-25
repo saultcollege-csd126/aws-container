@@ -1,0 +1,25 @@
+{
+    "Groups": [
+        {
+            "Path": "/spl66/",
+            "GroupName": "EC2-Admin",
+            "GroupId": "AGPATTDZLO54YXKKXWHZH",
+            "Arn": "arn:aws:iam::247215126393:group/spl66/EC2-Admin",
+            "CreateDate": "2026-01-23T17:57:41+00:00"
+        },
+        {
+            "Path": "/spl66/",
+            "GroupName": "EC2-Support",
+            "GroupId": "AGPATTDZLO5445CKAP5VI",
+            "Arn": "arn:aws:iam::247215126393:group/spl66/EC2-Support",
+            "CreateDate": "2026-01-23T17:57:41+00:00"
+        },
+        {
+            "Path": "/spl66/",
+            "GroupName": "S3-Support",
+            "GroupId": "AGPATTDZLO544PC5PPG2T",
+            "Arn": "arn:aws:iam::247215126393:group/spl66/S3-Support",
+            "CreateDate": "2026-01-23T17:57:41+00:00"
+        }
+    ]
+}
