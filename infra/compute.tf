@@ -19,12 +19,7 @@ import {
   id = "i-002d0765463ee9988"
 }
 
-import {
-  to = aws_cognito_user_pool.xpix
-  id = "us-east-1_kCeVdXi7E"
-}
-
-import {
-  to = aws_cognito_user_pool_client.xpix
-  id = "us-east-1_kCeVdXi7E/46oudbk4nu6lkk81jkb80usdab"
+output "xpix_public_ip" {
+  description = "Public IP of the XPix EC2 instance"
+  value       = aws_instance.xpix.public_ip
 }

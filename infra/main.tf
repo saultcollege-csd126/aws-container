@@ -12,3 +12,12 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
+import {
+  to = aws_cognito_user_pool.xpix
+  id = "us-east-1_kCeVdXi7E"
+}
+
+import {
+  to = aws_cognito_user_pool_client.xpix
+  id = "us-east-1_kCeVdXi7E/46oudbk4nu6lkk81jkb80usdab"
+}

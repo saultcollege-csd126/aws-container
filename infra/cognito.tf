@@ -1,6 +1,34 @@
 # __generated__ by Terraform
 # Please review these resources and move them into your main configuration files.
 
+# __generated__ by Terraform from "us-east-1_kCeVdXi7E/46oudbk4nu6lkk81jkb80usdab"
+resource "aws_cognito_user_pool_client" "xpix" {
+  access_token_validity                         = 60
+  allowed_oauth_flows                           = ["code"]
+  allowed_oauth_flows_user_pool_client          = true
+  allowed_oauth_scopes                          = ["email", "openid", "phone"]
+  auth_session_validity                         = 3
+  callback_urls                                 = ["http://localhost:5000/", "http://localhost:5000/authorize"]
+  enable_propagate_additional_user_context_data = false
+  enable_token_revocation                       = true
+  explicit_auth_flows                           = ["ALLOW_REFRESH_TOKEN_AUTH", "ALLOW_USER_AUTH", "ALLOW_USER_SRP_AUTH"]
+  generate_secret                               = null
+  id_token_validity                             = 60
+  logout_urls                                   = ["http://localhost:5000/"]
+  name                                          = "My web app - Assignment 3"
+  prevent_user_existence_errors                 = "ENABLED"
+  read_attributes                               = []
+  refresh_token_validity                        = 5
+  supported_identity_providers                  = ["COGNITO"]
+  user_pool_id                                  = aws_cognito_user_pool.xpix.id
+  write_attributes                              = []
+  token_validity_units {
+    access_token  = "minutes"
+    id_token      = "minutes"
+    refresh_token = "days"
+  }
+}
+
 # __generated__ by Terraform from "us-east-1_kCeVdXi7E"
 resource "aws_cognito_user_pool" "xpix" {
   alias_attributes           = null
@@ -51,4 +79,24 @@ resource "aws_cognito_user_pool" "xpix" {
   verification_message_template {
     default_email_option = "CONFIRM_WITH_CODE"
   }
+}
+resource "aws_ssm_parameter" "cognito_user_pool_id" {
+  name  = "/app/cognito/user_pool_id"
+  type  = "String"
+  value = aws_cognito_user_pool.xpix.id
+}
+
+resource "aws_ssm_parameter" "cognito_client_id" {
+  name  = "/app/cognito/client_id"
+  type  = "String"
+  value = aws_cognito_user_pool_client.xpix.id
+}
+import {
+  to = aws_ssm_parameter.cognito_user_pool_id
+  id = "/app/cognito/user_pool_id"
+}
+
+import {
+  to = aws_ssm_parameter.cognito_client_id
+  id = "/app/cognito/client_id"
 }
