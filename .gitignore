@@ -13,3 +13,9 @@ terraform.tfstate.backup
 lambda_package
 lambda_function.zip
 lambda-out.txt
+
+# Environment variables
+.env
+
+# Flask uploads
+uploads/
