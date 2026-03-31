@@ -16,7 +16,7 @@ APP_DIR=/home/ec2-user/xpix
 mkdir -p $APP_DIR
 
 # Clone your application repository (replace with your repo URL)
-git clone !!!Your clone URL here!!! $APP_DIR
+git clone https://github.com/brasheda16/aws-container-csd-126.git $APP_DIR
 
 cd $APP_DIR
 

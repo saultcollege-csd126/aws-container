@@ -14,7 +14,7 @@ resource "aws_instance" "xpix" {
   }
 }
 
-import {
-  to = aws_instance.xpix
-  id = "i-0e39cb8f29890ed33"
- }
+# import {
+#   to = aws_instance.xpix
+#   id = "i-0e39cb8f29890ed33"
+#  }
