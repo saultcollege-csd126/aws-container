@@ -8,9 +8,10 @@ import {
 }
 
 resource "aws_subnet" "public_1" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "172.31.0.0/20"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.31.0.0/20"
+  availability_zone       = "us-east-1a"
+  map_public_ip_on_launch = true
 }
 
 import {
@@ -19,9 +20,10 @@ import {
 }
 
 resource "aws_subnet" "public_2" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "172.31.16.0/20"
-  availability_zone = "us-east-1b"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.31.16.0/20"
+  availability_zone       = "us-east-1c"
+  map_public_ip_on_launch = true
 }
 
 import {
@@ -30,9 +32,10 @@ import {
 }
 
 resource "aws_subnet" "private_1" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "172.31.32.0/20"
-  availability_zone = "us-east-1c"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.31.32.0/20"
+  availability_zone       = "us-east-1d"
+  map_public_ip_on_launch = true
 }
 
 import {
@@ -41,9 +44,10 @@ import {
 }
 
 resource "aws_subnet" "private_2" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "172.31.48.0/20"
-  availability_zone = "us-east-1d"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.31.48.0/20"
+  availability_zone       = "us-east-1e"
+  map_public_ip_on_launch = true
 }
 
 import {
@@ -69,10 +73,16 @@ import {
   id = "rtb-022d0caf027ddc6c0"
 }
 
+# ✅ FIXED: Route is now imported instead of created
 resource "aws_route" "internet_access" {
   route_table_id         = aws_route_table.main.id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.igw.id
+}
+
+import {
+  to = aws_route.internet_access
+  id = "rtb-022d0caf027ddc6c0_0.0.0.0/0"
 }
 
 resource "aws_security_group" "web_sg" {

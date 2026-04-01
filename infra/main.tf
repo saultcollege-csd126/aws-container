@@ -13,13 +13,18 @@ provider "aws" {
   region = var.aws_region
 }
 
-# Cognito imports
+
 import {
   to = aws_cognito_user_pool.xpix
   id = "us-east-1_mLjCYqHOq"
 }
 
+
 import {
   to = aws_cognito_user_pool_client.xpix
-  id = "cf6krf1kd4qu1802o4lrel9ri"
+  id = "us-east-1_mLjCYqHOq/cf6krf1kd4qu1802o4lrel9ri"
+}
+
+output "public_ip" {
+  value = aws_instance.xpix_server.public_ip
 }
