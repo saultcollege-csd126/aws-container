@@ -57,4 +57,4 @@ EOF
 # --- Start + enable service ---
 systemctl daemon-reload
 systemctl enable xpix
-systemctl start xpix 
+systemctl start xpix

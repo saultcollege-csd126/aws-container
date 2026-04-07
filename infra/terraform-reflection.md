@@ -6,5 +6,5 @@ Reflection:
 
 39.2.   Consider how Terraform tracks the infrastructure state, and explain why you did NOT use Terraform to manage the secrets stored in the Parameter Store service.  Under what circumstances WOULD it be reasonable to use Terraform to manage these secrets?
 
---Terraform stores data in a state file, and secrets could be exposed there. That’s why we didn’t use it for secrets in this lab.It would only be okay to use Terraform for secrets if the state file is stored securely and access is restricted.
+--Terraform stores data in a state file, and secrets could be exposed there. That’s why we didn’t use it for secrets in this lab.It would only be okay to use Terraform for secrets if the state file is stored securely and access is restricted. 
 
