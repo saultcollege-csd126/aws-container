@@ -1,0 +1,3 @@
+3.1. my app allows users to upload and view images because the presigned url has the AWS identity and Acess managment of me letting others freely send imaes to the xpix.
+
+3.2 The GSI's I created are usefull because one(User-photo-index) stores each users photos into gallerys, while the other GSI(feed-index) is for public photos. the userid key groups the photos submitted by users, feed_key specifiys groups further into friends etc, uploaded_at stores the time/date data of each photo making it able to sort from newest to oldes or vice versa.
