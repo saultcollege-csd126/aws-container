@@ -9,13 +9,13 @@ resource "aws_instance" "asmt" {
     vpc_security_group_ids = [aws_security_group.asmt.id]
     user_data = file("/workspaces/aws-container_CSD126/resources/user_data.sh")
     tags = {
-        Name = "xpix_serv"
+        Name = "xpix-web-serv"
     }
 }
 
 import {
     to = aws_instance.asmt
-    id = "i-09b9a9cd88e262a39"
+    id = "i-0aae475730b3743b9"
 }
 
 output "ec2_private_ip"{

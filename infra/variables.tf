@@ -6,7 +6,7 @@ variable "aws_region" {
 
 variable ami_id {
     type = string
-    default = "ami-02dfbd4ff395f2a1b"
+    default = "ami-098e39bafa7e7303d"
 }
 variable instance_profile_name {
     type = string

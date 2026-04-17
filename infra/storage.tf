@@ -19,22 +19,22 @@ resource "aws_dynamodb_table" "asmt" {
  
     attribute  {
   name = "photo_id"
-  type = "S"
+  type = "String"
   }
 
     attribute {
    name = "user_id"
-   type = "S"
+   type = "String"
    }
 
     attribute{
     name = "uploaded_at"
-    type = "S"
+    type = "String"
     }
     
     attribute{
         name = "feed_key"
-        type = "S"
+        type = "String"
     }
     
     global_secondary_index {
@@ -71,7 +71,7 @@ resource "aws_dynamodb_table" "asmt" {
 }
 
     resource "aws_ssm_parameter" "bucket" {
-        name = "/apps/s3/photos_bucket_name"
+        name = "/app/s3/photos_bucket_name"
         value = aws_s3_bucket.asmt.bucket
         type = "String"
 
