@@ -109,6 +109,8 @@ import {
      id = "igw-0d2a9216a4c911812"
 }
 ///
+
+
 resource "aws_route_table" "public" {
         vpc_id = aws_vpc.asmt.id
 
@@ -239,7 +241,7 @@ resource "aws_security_group" "asmt" {
 import {
 
 to = aws_security_group.asmt
-id = "sg-0551e4fbb9d3eaf80"
+id = "sg-0966c159ff8f533d9"
 }
 
 

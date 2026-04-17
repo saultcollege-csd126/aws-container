@@ -12,10 +12,10 @@ resource "aws_s3_bucket" "asmt" {
 resource "aws_dynamodb_table" "asmt" {
 
  name = "xpix-photos"
- billing_mode = PAY_PER_REQUEST
- hash_key = photo_id
+ billing_mode = "PAY_PER_REQUEST"
+ hash_key = "photo_id"
  stream_enabled = true
- stream_view_type = NEW_IMAGE
+ stream_view_type = "NEW_IMAGE"
  
     attribute  {
   name = "photo_id"
@@ -38,7 +38,7 @@ resource "aws_dynamodb_table" "asmt" {
     }
     
     global_secondary_index {
-        projection_type = ALL
+        projection_type = "ALL"
         name = "user-photos-index"
 
         key_schema {
@@ -54,7 +54,7 @@ resource "aws_dynamodb_table" "asmt" {
     }
     
     global_secondary_index {
-      projection_type = ALL
+      projection_type = "ALL"
       name = "feed-index"
 
       key_schema {
@@ -70,16 +70,16 @@ resource "aws_dynamodb_table" "asmt" {
 
 }
 
-    resource "aws_ssm_parameter" "asmt" {
-        name = "/apps/s3/xpix-pics-22026811"
-        value = bucket
+    resource "aws_ssm_parameter" "bucket" {
+        name = "/apps/s3/photos_bucket_name"
+        value = aws_s3_bucket.asmt.bucket
         type = "String"
 
     }
 
-    resource "aws_ssm_parameter" "asmt" {
-        name = "/app/dynamodb/xpix-photos"
-        value = aws_dynamodb_table
+    resource "aws_ssm_parameter" "table" {
+        name = "/app/dynamodb/photos_table_name"
+        value = aws_dynamodb_table.asmt.name
         type = "String"
     
     }
