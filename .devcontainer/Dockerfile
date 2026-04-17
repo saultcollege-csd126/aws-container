@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/python:3.14
 
 # Install necessary packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --allow-insecure-repositories --allow-unauthenticated && \
+    apt-get install -y --no-install-recommends \
     curl \
     docker.io \
     gnupg \
