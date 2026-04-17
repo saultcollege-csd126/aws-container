@@ -11,4 +11,4 @@ variable ami_id {
 variable instance_profile_name {
     type = string
     default = "LabRole"
-}
+} 

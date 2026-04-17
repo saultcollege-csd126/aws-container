@@ -104,10 +104,7 @@ type = "String"
 value = aws_cognito_user_pool.xpix.id
 }
 
-import{
-  to = aws_ssm_parameter.user_pool_id
-  id = "/app/cognito/user_pool_id"
-}
+
 
 resource "aws_ssm_parameter" "client_id" {
 
@@ -116,7 +113,3 @@ resource "aws_ssm_parameter" "client_id" {
   value = aws_cognito_user_pool_client.xpix.id
 }
 
-import{
-  to = aws_ssm_parameter.client_id
-  id = "/app/cognito/client_id"
-}

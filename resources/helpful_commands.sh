@@ -28,7 +28,6 @@ aws sts get-caller-identity
 #     "Arn": "arn:aws:sts::92389239712487:assumed-role/voclabs/user4703244=_Student_View__Bob_Smith"
 # }
 
-
 # View logs
 aws logs tail --follow /aws/lambda/$lambda_name
 
