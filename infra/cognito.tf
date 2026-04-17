@@ -2,12 +2,12 @@
 # Cleaned and corrected
 
 resource "aws_cognito_user_pool" "xpix" {
-  name                       = "User pool - kks5ms"
-  auto_verified_attributes   = ["email"]
-  deletion_protection        = "ACTIVE"
-  mfa_configuration          = "OFF"
-  user_pool_tier             = "ESSENTIALS"
-  username_attributes        = ["email"]
+  name                     = "User pool - kks5ms"
+  auto_verified_attributes = ["email"]
+  deletion_protection      = "ACTIVE"
+  mfa_configuration        = "OFF"
+  user_pool_tier           = "ESSENTIALS"
+  username_attributes      = ["email"]
 
   account_recovery_setting {
     recovery_mechanism {
