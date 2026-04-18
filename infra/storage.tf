@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "asmt" {
 
     bucket = "xpix-pics-22026811"
     tags = {
-        Name = "xpix-pics-22026811"
+        name = "xpix-photos"
 
     }
 
@@ -19,22 +19,22 @@ resource "aws_dynamodb_table" "asmt" {
  
     attribute  {
   name = "photo_id"
-  type = "String"
+  type = "S"
   }
 
     attribute {
    name = "user_id"
-   type = "String"
+   type = "S"
    }
 
     attribute{
     name = "uploaded_at"
-    type = "String"
+    type = "S"
     }
     
     attribute{
         name = "feed_key"
-        type = "String"
+        type = "S"
     }
     
     global_secondary_index {
@@ -70,14 +70,14 @@ resource "aws_dynamodb_table" "asmt" {
 
 }
 
-    resource "aws_ssm_parameter" "bucket" {
+    resource "aws_ssm_parameter" "aws_s3_bucket" {
         name = "/app/s3/photos_bucket_name"
         value = aws_s3_bucket.asmt.bucket
         type = "String"
 
     }
 
-    resource "aws_ssm_parameter" "table" {
+    resource "aws_ssm_parameter" "aws_dynamodb_table" {
         name = "/app/dynamodb/photos_table_name"
         value = aws_dynamodb_table.asmt.name
         type = "String"
