@@ -72,6 +72,7 @@ resource "aws_dynamodb_table" "asmt" {
 
     resource "aws_ssm_parameter" "aws_s3_bucket" {
         name = "/app/s3/photos_bucket_name"
+        arn = "arn:aws:ssm:us-east-1:241123122524:parameter/app/s3/photos_bucket_name"
         value = aws_s3_bucket.asmt.bucket
         type = "String"
 

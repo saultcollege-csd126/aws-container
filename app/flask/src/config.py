@@ -21,6 +21,7 @@ class Config:
     COGNITO_CLIENT_SECRET = get_param('/app/cognito/client_secret')
 
     S3_BUCKET_NAME = get_param('/app/s3/photos_bucket_name')
+    print("BUCKET NAME" + S3_BUCKET_NAME)
     DYNAMODB_TABLE_NAME = get_param('/app/dynamodb/photos_table_name')
 
     # These URIs are constructed based on the user pool ID and the AWS region.
