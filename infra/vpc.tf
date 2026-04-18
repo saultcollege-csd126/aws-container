@@ -90,7 +90,7 @@ import {
     id = "subnet-053ed6d4689f6b897"
 }
 
-//--------------------------internet gateway-------------------------------
+//--------------------------internet gateway-------------------------------//
 
 resource "aws_internet_gateway" "asmt" {
     vpc_id = aws_vpc.asmt.id

@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "asmt" {
 
     bucket = "xpix-pics-22026811"
     tags = {
-        Name = "xpix-photos"
+        Name = "xpix-pics-22026811"
 
     }
 
